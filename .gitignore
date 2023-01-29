@@ -133,3 +133,6 @@ dmypy.json
 
 # data files
 *.csv
+
+# jenkins cli
+jenkins-cli.jar
