@@ -75,6 +75,7 @@ json.users.each { user ->
     }
 
     // set permissions
+    strategy.add(jenkins.model.Jenkins.READ, new PermissionEntry(AuthorizationType.USER, user.name))
     roles.each { role->
         strategy.add(role, new PermissionEntry(AuthorizationType.USER, user.name))
     }
