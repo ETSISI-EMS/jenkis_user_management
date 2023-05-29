@@ -11,4 +11,5 @@ set -a # automatically export all variables
 source .env
 set +a
 
-java -jar jenkins-cli.jar -s $URL -auth $USER:$PWD groovy = < load_credentials.groovy `python csv2json.py $1 | tr -d "\r\n" | tr --d '[:space:]'`
+echo "Connecting to jenkinauth"
+java -jar jenkins-cli.jar -s "${URL}" -auth "${USER}":"${PWD}" groovy = < load_credentials.groovy `python csv2json.py $1 | tr -d "\r\n" | tr --d '[:space:]'`
