@@ -3,7 +3,7 @@ Scripts to bulk create/delete users in jenkins using the jenkins groovy API.
 
 # Setup
 
-1. Install python3 and pip.
+1. Install Java (>= 11) python3 and pip.
 2. Install python dependancies with "pip install -r requirements.txt".
 3. Download the jenkins-cli.jar from your server (you can find it in "https://<your_jenkins_server>/jnlpJars/jenkins-cli.jar").
 4. Create a .env file in the root folder of the project with the login information to your Jenkins server.
