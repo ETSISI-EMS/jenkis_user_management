@@ -40,11 +40,12 @@ roles = [
     hudson.model.View.READ,
     // SCM
     hudson.scm.SCM.TAG,
+    
     // Lockable Resources
-    org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.UNLOCK,
-    org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.VIEW,
-    org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.STEAL,
-    org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.RESERVE
+    //org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.UNLOCK,
+    //org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.VIEW,
+    //org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.STEAL,
+    //org.jenkins.plugins.lockableresources.actions.LockableResourcesRootAction.RESERVE
 ]
 
 def clear_roles (strategy, user) {
@@ -57,8 +58,15 @@ def clear_roles (strategy, user) {
     }
 }
 
+println "reading users..."
+
 //read json text from first argument
 def json = new JsonSlurper().parseText(args[0])
+
+//print number of users read
+println "read " + json.users.size() + " users"
+
+// get the jenkins instance
 def instance = jenkins.model.Jenkins.getInstance()
 def strategy = instance.getAuthorizationStrategy()
 
